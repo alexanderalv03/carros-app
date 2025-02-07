@@ -107,16 +107,7 @@ public class CarroController {
         }  
         }
 
-        @GetMapping("/findByMarca")
-        public ResponseEntity <List<Carro>> findByMarca(@RequestParam long idMarca) {
-            try {
-    
-                List<Carro> lista = this.carroService.findByMarca(idMarca);
-                return new ResponseEntity<>(lista, HttpStatus.OK);
-            } catch (Exception e) {
-                return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-            }  
-            }
+        
 
             @GetMapping("/findAcimaAno")
             public ResponseEntity <List<Carro>> findAcimaAno(@RequestParam int ano) {
