@@ -1,2 +1,4 @@
 Aplicação em desenvolvimento. 
-Linguagem utilizada: Typescript
+Linguagem utilizada: Java
+Framework: Spring Boot
+Fase: modelagem
