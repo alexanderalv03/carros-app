@@ -27,7 +27,7 @@ public class MarcaService {
 
     }
      public List<Marca> findByNome(String nome){
-        return this.marcaRepository.findByNome(nome);
+        return this.marcaRepository.findByMarcaNome(nome);
 
     }
 

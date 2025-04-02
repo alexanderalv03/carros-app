@@ -26,8 +26,8 @@ public class UsuarioService {
         return "marca salva com sucesso";
 
     }
-     public List<Usuario> findByNome(String nome){
-        return this.usuarioRepository.findByNome(nome);
+     public List<Usuario> findByNome(String userNome){
+        return this.usuarioRepository.findByUserNome(userNome);
 
     }
 

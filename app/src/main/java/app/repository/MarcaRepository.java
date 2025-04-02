@@ -8,6 +8,6 @@ import app.entity.Marca;
 
 public interface MarcaRepository extends JpaRepository <Marca, Long>{
 
-    public List<Marca> findByNome (String nome);
+    public List<Marca> findByMarcaNome (String nome);
 
 }
