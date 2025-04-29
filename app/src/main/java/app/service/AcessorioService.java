@@ -21,7 +21,7 @@ public class AcessorioService {
 
     public String update (Acessorio acessorio, Long id){
 
-        acessorio.setId(id);
+        acessorio.setAcessorioId(id);
         this.acessorioRepository.save(acessorio);
         return "carro atualizado com sucesso";
 
@@ -44,8 +44,8 @@ public class AcessorioService {
         return acessorio;
     }
 
-    public List<Acessorio> findByNome(String nome){
-        return this.acessorioRepository.findByNome(nome);
+    public List<Acessorio> findByNome(String acessorioNome){
+        return this.acessorioRepository.findByAcessorioNome(acessorioNome);
 
     }
 

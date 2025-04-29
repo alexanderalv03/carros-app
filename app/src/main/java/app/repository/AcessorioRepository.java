@@ -8,6 +8,6 @@ import app.entity.Acessorio;
 
 public interface AcessorioRepository extends JpaRepository<Acessorio, Long>{
 
-     public List<Acessorio> findByNome(String nome);
+     public List<Acessorio> findByAcessorioNome(String acessorioNome);
 
 }

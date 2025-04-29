@@ -19,9 +19,9 @@ public class Acessorio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long acessorioId;
 
-    private String nome;
+    private String acessorioNome;
 
 
 }
