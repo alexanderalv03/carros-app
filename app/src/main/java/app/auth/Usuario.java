@@ -1,6 +1,5 @@
 package app.auth;
 
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -9,93 +8,91 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Usuario implements UserDetails{
-	
-	//private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String username;
-	private String password;
-	private String role;
-    
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> authorities = new ArrayList<>();
-	    authorities.add(new SimpleGrantedAuthority(this.role));
-	    return authorities;
-	}
+public class Usuario implements UserDetails {
 
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return password;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
+    private Long id;
 
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return username;
-	}
+    @Column(name = "username")
+    private String username;
 
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    @Column(name = "password")
+    private String password;
 
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    @Column(name = "role")
+    private String role;
 
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    // --- Implementação de UserDetails ---
 
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
-	}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(this.role));
+        return authorities;
+    }
 
-	
-	
-	
-	public Long getId() {
-		return id;
-	}
+    @Override
+    public String getPassword() {
+        return password;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Override
+    public String getUsername() {
+        return username;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
+    // --- Getters e Setters ---
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
