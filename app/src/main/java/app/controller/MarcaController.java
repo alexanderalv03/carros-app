@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ public class MarcaController {
     @Autowired 
     private MarcaService marcaService;
 
+    @PreAuthorize("hasRole('admin')")
     @PostMapping("/save")
     public ResponseEntity <String> save(@RequestBody Marca marca) {
         try {
@@ -41,6 +43,7 @@ public class MarcaController {
     
 
 
+    @PreAuthorize("hasRole('admin')")
     @PutMapping("/update/{id}")
     public ResponseEntity <String> updade( @RequestBody Marca marca, @PathVariable Long id) {
         try {
@@ -53,7 +56,7 @@ public class MarcaController {
         }
         
 
-    
+    @PreAuthorize("hasRole('admin')")
     @GetMapping("/findAll")
     public ResponseEntity <List<Marca>> findAll() {
         try {
@@ -66,6 +69,7 @@ public class MarcaController {
         }
     
     
+    @PreAuthorize("hasRole('admin')")    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity <String> delete(@PathVariable Long id){
         try {
@@ -80,7 +84,7 @@ public class MarcaController {
         
 
     
-
+       @PreAuthorize("hasRole('admin')")
     @GetMapping("/findById/{id}")
     public ResponseEntity <Marca> findById(@PathVariable Long id) {
         try {
@@ -93,6 +97,7 @@ public class MarcaController {
         }           
         }
 
+           @PreAuthorize("hasRole('admin')")
         @GetMapping("/findByNome")
     public ResponseEntity <List<Marca>> findByNome(@RequestParam String nome) {
         try {
